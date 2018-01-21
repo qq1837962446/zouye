@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //冒泡排序
+    {
+        function Fon(arr) {
+            for(let i=0;i<arr.length;i++){
+                for(let j=0;j<arr.length-i-1;j++){
+                    if(arr[j]>arr[j+1]){
+                        let n=arr[j];
+                        arr[j]=arr[j+1];
+                        arr[j+1]=n
+                    }
+                }
+            }
+            console.log(arr);
+        }
+
+        Fon([1, 2, 3, 2, 4, 5, 6, 7, 82, 19])
+    }
+    //选择排序
+    {
+        function Xy(arr) {
+            for(let i=0;i<arr.length;i++){
+                for(let j=i+1;j<arr.length;j++){
+                    if(arr[j]<arr[i]){
+                        let npm=arr[j];
+                        arr[j] = arr[i];
+                        arr[i] =npm;
+                    }
+                }
+            }
+            console.log(arr);
+        }
+        Xy([1, 4, 3, 3, 4, 5, 6, 7, 82, 19])
+    }
+
+    //求一个二维数组的和
+    {
+        function he(arr) {
+            let brr= 0;
+            for(let i=0;i<arr.length;i++){
+                for(let j=0;j<arr[i].length;j++){
+                    brr+=arr[i][j]
+                }
+            }
+            console.log(brr);
+        }
+        he([[1,2],[1,2,3]]);
+    }
+    // 求一个二维数组的最大值
+    {
+        function array(arr){
+            let max=0;
+            for(let i=0;i<arr.length;i++){
+                if(arr[i] instanceof Array){
+                    for(j=0;j<arr[i].length;j++){
+                        if(max<arr[i][j]){
+                            max=arr[i][j];
+                        }
+                    }
+                }else{
+                    if(max<arr[i]){
+                        max=arr[i];
+                    }
+                }
+            }
+            console.log(max);
+        }
+        let brr=[[43,56,65,3,32,67,43],[12,43,54,65,4],[12,34,54]];
+        array(brr);
+    }
+    //求一个二维数组中长度最长的数组
+    {
+        function max(arr){
+            let max=0;
+            let index=0;
+            for(let i=0;i<arr.length;i++){
+                if(max<arr[i].length){
+                    max=arr[i].length;
+                    index=i;
+                }
+            }
+            index+=1;
+            console.log("第"+index+"个位置上长度最长，最长为"+max);
+        }
+        let brr=[[43,56,65,3,32,67,43],[12,43,54,65,4],[12,34,54]];
+        max(brr)
+    }
+    // 复制一个二维数组
+    {
+        function copy(arr){
+            let brr=[];
+            for(let i=0;i<arr.length;i++){
+                if(arr[i] instanceof Array){
+                    brr[i]=[];
+                    for(j=0;j<arr[i].length;j++){
+                        brr[i][j]=arr[i][j];
+                    }
+                }
+                else{
+                    brr[i]=arr[i];
+                }
+            }
+            console.log(brr);
+        }
+        let brr=[[43,56,65,3,32,67,43],[12,43,54,65,4],[12,34,54]];
+        copy(brr);
+    }
+    // 找出一个数字数组里面大于5的数，组成一个新的数组
+    {
+        function fun(arr){
+            let brr=[];
+            for(let i=0;i<arr.length;i++){
+                if(arr[i] instanceof Array){
+                    brr[i]=[];
+                    for(let j=0;j<arr[i].length;j++){
+                        if(arr[i][j]>5){
+
+                            brr[i][brr[i].length]=arr[i][j];
+                        }
+                    }
+                }else{
+                    if(arr[i]>5){
+                        brr[brr.length]=arr[i];
+                    }
+                }
+            }
+            console.log(brr)
+        }
+        let brr=[[43,56,65,3,32,67,43],[12,43,54,65,4],[12,34,54]];
+        copy(brr);
+    }
+    //在后面添加一个值
+    {
+        function con(arr,brr) {
+            for(let i=0;i<arr.length;i++){
+                arr[arr.length-1]=brr;
+            }
+            console.log(arr);
+        }
+        let brr="s";
+        let arr = [1, 2, 3, 2, 4, 5, 6, 7, 82, 1,];
+        con(arr,brr)
+    }
+    // 将数组中的数字内容求和
+    {
+        function ArrayShuSum(arr){
+            let sum=0;
+            for(let i=0;i<arr.length;i++){
+                if(arr[i] instanceof Array){
+                    for(j=0;j<arr[i].length;j++){
+                        if(typeof(arr[i][j])=='number'){
+                            sum+=arr[i][j];
+                        }
+                    }
+                }else{
+                    if(typeof(arr[i])=='number'){
+                        sum+=arr[i];
+                    }
+                }
+            }
+            console.log(sum);
+        }
+         ArrayShuSum([[12,'er',1],[12,4]])
+    }
+    // 判断数组中是否所有数字都是大于0
+    {
+        function arraynum(arr){
+            let flag='都大于0';
+            for(let i=0;i<arr.length;i++){
+                if(arr[i] instanceof Array){
+                    for(j=0;j<arr[i].length;j++){
+                        if(typeof(arr[i][j])=='number'){
+                            if(arr[i][j]<=0){
+                                flag="不全大于0";
+                                break;
+                            }
+                        }
+                    }
+                }else{
+                    if(typeof(arr[i])=='number'){
+                        if(arr[i]<0){
+                            flag="不全大于0";
+                            break;
+                        }
+                    }
+                }
+                if(flag=='不全大于0'){break;}
+            }
+            console.log(flag);
+        }
+         arraynum([[12,'er',-8],[12,4]]);
+    }
+    //合并
+    {
+        function Fn(arr) {
+            let brr=[];
+            for(let i=0;i<arr.length;i++){
+                for(let j=0;j<arr[i].length;j++){
+                    if(arr[i]<arr[j]){
+                        brr[brr.length]=arr[i]
+                    }
+                }
+            }
+            console.log(brr)
+        }
+        Fn([[21,3,24,5,6,3],[32,34,45,8,8,8,8]]);
+    }
+    // 合并两个数组
+    {
+        function hebing(arr,brr){
+            let crr=[];
+            for(let i=0;i<arr.length;i++){
+                crr[crr.length]=arr[i];
+            }
+            for(let j=0;j<brr.length;j++){
+                crr[crr.length]=brr[j];
+            }
+            console.log(crr)
+        }
+        let a=[123,4,23,2];
+        let b=[12,32,12,12];
+         hebing(a,b)
+    }
+    // 找到数组中某一个值的所有下标
+    {
+        function fi(arr,a){
+            for(let i=0;i<arr.length;i++){
+                if(arr[i] instanceof Array){
+                    for(j=0;j<arr[i].length;j++){
+                        if(arr[i][j]=='a'){
+                            console.log("第"+(i+1)+"组的第"+(j+1)+"个");
+                        }
+                    }
+                }
+                else{
+                    if(arr[i]==a){
+                        console.log("第"+(i+1)+"个");
+                    }
+                }
+            }
+        }
+         fi([[23,43,1,'a'],['a','qw',12]],'a')
+    }
+    // 将数组反转
+    {
+        function tr(arr){
+            let brr=[];
+            for(let i=arr.length-1;i>=0;i--){//从后往前
+                if(arr[i] instanceof Array){//如果是二维数组的话
+                    brr[arr.length-i-1]=[];
+                    for(j=arr[i].length-1;j>=0;j--){
+
+                        brr[arr.length-i-1][arr[i].length-1-j]=arr[i][j];
+                    }
+                }else{
+                    brr[brr.length]=arr[i];
+                }
+            }
+            console.log(brr);
+        }
+         tr([[23,43,1,'a'],['a','qw',12]])
+    }
+    // 移除数组中等于3的元素
+    {
+        function deletea(arr){
+            let brr=[];
+            for(let i=0;i<arr.length;i++){
+                if(arr[i] instanceof Array){//二维数组
+                    brr[i]=[];
+                    for(let j=0;j<arr[i].length;j++){
+                        if(arr[i][j]!=3){
+                            brr[i][brr[i].length]=arr[i][j];
+                        }
+
+                    }
+                }else{//一维数组
+                    if(arr[i]!=3){
+                        brr[brr.length]=arr[i];
+                    }
+                }
+            }
+            console.log(brr);
+        }
+         deletea([[1,3,3,4],[3,56,45],[89,3]]);
+    }
+    // 删除数组中的第一个值或者第一个数组中的第一个值
+    {
+        function deleteb(arr){
+            let brr=[];
+            for(let i=0;i<arr.length;i++){
+                if(arr[i] instanceof Array){
+                    brr[i]=[];
+                    if(i==0){
+                        for(j=1;j<arr[0].length;j++){
+                            brr[0][brr[0].length]=arr[0][j];
+                        }
+                    }else{
+                        for(let j=0;j<arr[i].length;j++){
+                            brr[i][j]=arr[i][j];
+                        }
+                    }
+                }else{
+                    if(i>0){
+                        brr[brr.length]=arr[i];
+                    }
+                }
+            }
+            console.log(brr);
+        }
+         deleteb([[1,2,4,6],[1,56,45],[89,3]]);
+    }
+    // 在数组的前面添加一个值
+    {
+        function add(arr,a){
+            let brr=[];
+            for(let i=0;i<arr.length;i++){
+                if(arr[i] instanceof Array){
+                    brr[i]=[];
+                    if(i==0){
+                        brr[0][brr[0].length]=a;
+                        for(j=0;j<arr[0].length;j++){
+                            brr[0][brr[0].length]=arr[0][j];
+                        }
+                    }else{
+                        for(let j=0;j<arr[i].length;j++){
+                            brr[i][j]=arr[i][j];
+                        }
+                    }
+                }else{
+                    if(i==0){
+                        brr[brr.length]=a;
+                    }
+                    brr[brr.length]=arr[i];
+                }
+            }
+            console.log(brr);
+        }
+         add([[2,2,4,6],[1,56,45],[89,3]],'o');
+    }
+    // 封装一个n行m列的表格
+    {
+        function table(n,m){
+            let str='<table border="1px" cellspacing="0" cellpadding="10" width="300px" height="300px">';
+            for(let i=0;i<n;i++){
+                str+='<tr>';
+                for(let j=0;j<m;j++){
+                    if(i%2==0){
+                        if(j%2==0){
+                            str+='<td bgcolor="aqua">';
+                            str+='</td>';
+                        }else{
+                            str+='<td bgcolor="red">';
+                            str+='</td>';
+                        }
+                    }else{
+                        if(j%2==0) {
+                            str += '<td bgcolor="#faebd7">';
+                            str += '</td>';
+                        }else{
+                            str += '<td bgcolor="#9932cc">';
+                            str += '</td>';
+                        }
+                    }
+
+                }
+                str+='</tr>';
+
+            }
+            str+='</table>';
+            document.write(str);
+        }
+         table(7,8);
+    }
+    // 封装n*n的乘法表
+    {
+        function cheng(n){
+            for(let i=1;i<=n;i++){
+                for(let j=1;j<=i;j++){
+                    document.write(i+"*"+j+"="+(i*j)+"&nbsp;&nbsp;&nbsp;");
+                }
+                document.write("<br>");
+            }
+        }
+         cheng(9);
+    }
+    // 输入一个数是不是质数
+    {
+        function zhishu(n){
+            flag="是质数";
+            for(let i=2;i<n;i++){
+                if(n%i==0){
+                    flag="不是质数";
+                    break;
+                }
+            }
+            console.log(flag)
+        }
+         zhishu(18)
+    }
+    //找出一个数字数组里面大于5的数的个数
+    {
+        function findz(arr){
+            let count=0;
+            for(let i=0;i<arr.length;i++){
+                if(arr[i] instanceof Array){
+                    for(j=0;j<arr[i].length;j++){
+                        if(arr[i][j]>5){
+                            count++;
+                        }
+                    }
+                }else{
+                    if(arr[i]>5){
+                        count++;
+                    }
+                }
+            }
+            console.log(count);
+        }
+        findz([[1,3,5,6],[5,4,3,5,8],[5,6,7,490,5]])
+    }
+
+
+</script>
